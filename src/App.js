@@ -1,12 +1,17 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
-import { HomePage } from "./pages/HomePage";
+import { Navbar } from "./components/navbar/Navbar";
+import { Products } from "./components/products/Products";
+import { Minicart } from "./components/minicart/Minicart";
+import { Provider } from "./context/Provider";
 
 function App() {
   return (
-    <div>
-      <HomePage />
-    </div>
+    <Provider>
+      <Navbar />
+      <Products />
+      <Minicart />
+    </Provider>
   );
 }
 
