@@ -1,4 +1,3 @@
-import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { CartItem } from "./CartItem";
 import { AppContext } from "../../context/AppContext";
@@ -11,18 +10,25 @@ export const Minicart = () => {
 
   return (
     <section
-      className={`minicart-modal ${cartVisible ? "minicart-modal-active" : ""}`}
+      className={`minicart-container ${
+        cartVisible ? "minicart-container-active" : ""
+      }`}
     >
-      <Modal.Header closeButton className="minicart-header">
-        <Modal.Title>
-          Meu carrinho <span>(1)</span>
-        </Modal.Title>
-      </Modal.Header>
-      {cartItems.map((cartItem) => (
-        <CartItem key={cartItem.id} data={{ cartItem }} />
-      ))}
+      <div className="minicart-header">
+        <h3>
+          Meu carrinho
+          {cartItems.length > 0 && (
+            <span className="cart-quantity">({cartItems.length})</span>
+          )}
+        </h3>
+      </div>
+      <ul className="list-group">
+        {cartItems.map((cartItem) => (
+          <CartItem key={cartItem.id} data={{ cartItem }} />
+        ))}
+      </ul>
 
-      <Modal.Footer className="minicart-footer">
+      <div className="minicart-footer">
         <div className="minicart-footer-div">
           <h6>Total</h6>
           <h6>R$ {totalPrice}</h6>
@@ -30,7 +36,7 @@ export const Minicart = () => {
 
         <Button className="button-secondary">Continuar comprando</Button>
         <Button className="button-primary">FINALIZAR COMPRAS</Button>
-      </Modal.Footer>
+      </div>
     </section>
   );
 };

@@ -1,43 +1,36 @@
 /* itens minicart */
 .list-group {
   border-radius: 0;
-  border-bottom: 1px solid #80808040;
-  /* height: 100vh; */
-  width: 90%;
-  margin: 0 auto;
   overflow: auto;
   flex-grow: 1;
-  min-height: 114px;
-}
-.list-group-item {
-  border: transparent;
-  padding: 0;
+  border-bottom: 1px solid #80808040;
 }
 
-.list-group-item .container {
-  padding: 0;
-}
-
-.list-group-item .container .row {
+.list-item {
   align-items: center;
-  width: 100%;
-  padding: 0 8px;
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid #80808040;
+  margin-top: 8px;
+  padding-bottom: 8px;
+}
+.list-item:last-child {
+  border-bottom: none;
 }
 
-.list-group-item .product-image {
+.list-item .product-image {
   width: 5rem;
-  margin: 16px auto;
 }
 
-.list-group-item .product-name {
-  margin-left: 10px;
+.list-item h5 {
+  margin: 8px 0;
+  width: 190px;
+  height: 40px;
+  overflow: hidden;
+  font-size: 1rem;
 }
 
-.list-group-item h6 {
-  margin: 0;
-}
-
-.list-group-item p {
+.list-item p {
   margin: 0;
   color: grey;
 }
@@ -48,10 +41,12 @@
   border-radius: 4px;
   padding: 8px;
   height: 34px;
-  align-content: center;
-  margin-top: 8px;
-  position: relative;
-  left: 11px;
+  /* align-content: center; */
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
 }
 
 .quantity-container .minus,
@@ -65,70 +60,73 @@
   text-align: center;
 }
 
-.lixeira {
+.list-item button {
   display: flex;
   justify-content: right;
-}
-.lixeira button {
+  background-color: transparent;
   border: none;
-  background-color: white;
 }
 
-/* Modal/Minicart */
-.modal {
+/* _____________MINICART_____________ */
+/* .modal {
   display: flex !important;
   justify-content: flex-end;
-}
+} */
 
-.modal-content {
+/* .modal-content {
   height: calc(100vh - 56px);
-  /* height: 100vh; */
   border-radius: 0;
   max-width: 400px;
   position: relative;
   bottom: -56px;
   border: none;
-}
+} */
 
-.modal-dialog {
+/* .modal-dialog {
   margin: 0;
-}
+} */
 
-.modal-footer {
+/* .modal-footer {
   border: none;
-}
+} */
 
-.minicart-modal {
+.minicart-container {
   margin-right: 0;
-  transform: translate(110%, 0);
-  transition: all 400ms ease;
+  /* transform: translate(110%, 0);
+  transition: all 400ms ease; */
   max-width: 400px;
   height: calc(100vh - 56px);
-  position: absolute;
   right: 0;
   bottom: 0;
-  display: flex;
-  flex-direction: column;
+  display: none;
   background-color: white;
 }
 
-.minicart-modal-active {
-  transform: translate(0, 0);
+.minicart-container-active {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  padding: 16px;
 }
 
-.modal-header .btn-close {
-  display: none;
-}
-/* .modal-backdrop.show {
+/* .modal-backdrop.minicart-modal-active {
   opacity: 0;
 } */
+.minicart-container ::-webkit-scrollbar {
+  background-color: white;
+  width: 8px;
+}
+
+.minicart-container ::-webkit-scrollbar-thumb {
+  background: #8e5644;
+  border-radius: 50px;
+}
 
 .minicart-header {
-  width: 90%;
-  height: 80px;
+  text-align: left;
+  padding: 16px 0;
   color: #8e5644;
   border-bottom: 1px solid #80808040;
-  margin: 0 auto;
 }
 
 .minicart-footer {
@@ -138,25 +136,25 @@
 
 .minicart-footer-div {
   display: flex;
-  width: 90%;
   margin: 0 auto;
   padding-top: 20px;
   justify-content: space-between;
 }
 
 .button-primary {
-  width: 90%;
+  width: 100%;
   height: 50px;
-  margin: 0 auto 20px auto;
+  margin: 0 auto;
   background-color: #8e5644;
   border: none;
 }
+
 .button-primary:hover {
   background-color: #7b422f;
 }
 
 .button-secondary {
-  width: 90%;
+  width: 100%;
   height: 50px;
   border: 1px solid #8e5644;
   color: #8e5644;
@@ -169,7 +167,7 @@
   border: 1px solid #7b422f;
 }
 
-/* vitrine */
+/* _____________VITRINE_____________ */
 .vitrine .col {
   flex: 0;
 }
@@ -181,7 +179,6 @@
   margin: 0 auto;
 }
 .vitrine-produtos {
-  /* height: calc(100vh - 56px); */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
@@ -207,6 +204,8 @@
 
 .vitrine-cardboot-title {
   font-weight: 300;
+  height: 50px;
+  overflow: hidden;
 }
 
 .product-image {
@@ -214,7 +213,7 @@
   margin: 30px auto 16px auto;
 }
 
-/* NavBar */
+/* _____________NAVBAR_____________ */
 .navbar {
   position: fixed !important;
   width: 100% !important;
@@ -265,7 +264,7 @@ nav button {
   justify-content: center;
 }
 
-/* loading */
+/* _____________LOADING_____________ */
 .loading {
   margin: 100px auto 0;
   animation: spin 1s linear infinite;

@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
+import { formatCurrrency } from "../../utils/formatCurrency";
 // import cottonCandy from "../../assets/images/cotton-candy.png";
 // import rosquinha from "../../assets/images/rosquinha.png";
 // import picole from "../../assets/images/picole.png";
@@ -13,11 +14,9 @@ export const Card = ({ data }) => {
   const { title, thumbnail, price } = data.product;
 
   const { cartItems, setCartItems } = useContext(AppContext);
-  console.log("data", data);
-  console.log("data", data.product.id);
 
   const handleAddCart = () => {
-    setCartItems([...cartItems, data]);
+    setCartItems([...cartItems, data.product]);
   };
   return (
     <div>
@@ -34,7 +33,7 @@ export const Card = ({ data }) => {
                 <CardBoot.Body className="text-center">
                   <h5 className="vitrine-cardboot-title">{title}</h5>
                   <CardBoot.Text>
-                    <strong>R${price}</strong>
+                    <strong>{formatCurrrency(price, "BRL")}</strong>
                   </CardBoot.Text>
                   <Button className="button-primary" onClick={handleAddCart}>
                     Adicionar ao carrinho
