@@ -9,7 +9,7 @@ export const Products = () => {
   // const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetchProducts("copo").then((response) => {
+    fetchProducts().then((response) => {
       setProducts(response);
       // console.log("products", products);
       setLoading(false);
