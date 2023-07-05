@@ -3,16 +3,24 @@ import closeIcon from "../../assets/images/closeIcon.png";
 
 import { CartItem } from "./CartItem";
 import { AppContext } from "../../context/AppContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+
 
 export const Minicart = () => {
-  const { cartItems, cartVisible, setCartVisible } = useContext(AppContext);
+  const { cartItems, cartVisible, setCartVisible, setCartItems } = useContext(AppContext);
   const totalPrice = cartItems.reduce((acc, item) => item.price + acc, 0);
 
+  useEffect(()=>{
+    if(localStorage.getItem('productsList') !== null){
+      setCartItems(JSON.parse(localStorage.getItem('productsList')))
+    }
+   },[])
+
   return (
+  <>
     <section
-      className={`minicart-container ${
-        cartVisible ? "minicart-container-active" : ""
+      className={`minicart-content ${
+        cartVisible ? "minicart-content-active" : ""
       }`}
     >
       <div className="minicart-header">
@@ -27,24 +35,26 @@ export const Minicart = () => {
     </button>
       </div>
       
-      
-      {cartItems.length == 0 ? <h3 className="empty-cart-content">
+      {cartItems.length === 0 ? <h3 className="empty-cart-content">
            <span className="empty-cart">Seu carrinho está vazio.</span></h3> :
-        <ul className="list-group"> {cartItems.map((cartItem) => (
-          <CartItem key={cartItem.id} data={{ cartItem }} />
+        <ul className="list-group"> {cartItems.map((cartItem, cartItemIndex) => (
+          <CartItem key={cartItemIndex} data={{ cartItem }} />
         ))}</ul>
       }
       
-
       <div className="minicart-footer">
         <div className="minicart-footer-div">
           <h6>Total</h6>
-          <h6>R$ {totalPrice}</h6>
+          <h6>R$ {totalPrice.toFixed(2)}</h6>
         </div>
 
         <Button className="button-secondary">Continuar comprando</Button>
         <Button className="button-primary">FINALIZAR COMPRAS</Button>
       </div>
     </section>
+    <div className={`${cartVisible ? "minicart-backdrop" : ""
+    }`}/>
+
+       </>
   );
 };

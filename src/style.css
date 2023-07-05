@@ -27,12 +27,14 @@ p{
 
 .list-item {
   align-items: center;
+  justify-content: space-between;
   display: flex;
   gap: 20px;
   border-bottom: 1px solid #80808040;
   margin-top: 8px;
   padding-bottom: 8px;
 }
+
 .list-item:last-child {
   border-bottom: none;
 }
@@ -41,20 +43,30 @@ p{
   width: 5rem;
 }
 
-.product-name{
-  width: 190px;
-  height: 40px;
-  overflow: hidden;
-  font-size: .85rem;
+.list-item-info{
+width: 100px;
 }
 
-.product-price{
+.product-name{
+  /* width: 190px; */
+  height: 20px;
+  overflow: hidden;
+  font-size: .85rem;
+  font-weight: 600;
+}
+
+.product-price, .product-description, .quantity-item{
   font-size: .85rem;
   margin: 0;
   color: grey;
 }
 
-.quantity-container {
+.product-price{
+
+  font-weight: 600;
+}
+
+/* .quantity-container {
   border: 1px solid #80808040;
   max-width: 94px;
   border-radius: 4px;
@@ -66,18 +78,13 @@ p{
   justify-content: space-between;
   text-align: center;
   font-size: .85rem;
-}
+} */
 
-.quantity-container .minus,
-.quantity-container .plus {
-  margin: 0;
-  width: 20px;
-}
-.quantity-item {
+/* .quantity-item {
   margin: 0;
   width: 32px;
   text-align: center;
-}
+} */
 
 .list-item button {
   display: flex;
@@ -88,10 +95,20 @@ p{
 
 /* _____________MINICART_____________ */
 
-.minicart-container {
+.minicart-backdrop{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  animation-duration: 1s;
+  transition: all 400ms ease;
+  z-index: 0;
+}
+
+.minicart-content{
   margin-right: 0;
-  /* transform: translate(110%, 0);
-  transition: all 400ms ease; */
   max-width: 400px;
   height: 100vh;
   right: 0;
@@ -101,23 +118,21 @@ p{
   z-index: 2;
 }
 
-.minicart-container-active {
+.minicart-content-active {
   display: flex;
   flex-direction: column;
   position: fixed;
   padding: 16px;
+  z-index: 2;
+  transition: all 400ms ease;
 }
 
-/* .modal-backdrop.minicart-modal-active {
-  opacity: 0;
-} */
-
-.minicart-container ::-webkit-scrollbar {
+.minicart-content ::-webkit-scrollbar {
   background-color: white;
   width: 8px;
 }
 
-.minicart-container ::-webkit-scrollbar-thumb {
+.minicart-content ::-webkit-scrollbar-thumb {
   background: #8e5644;
   border-radius: 50px;
 }
@@ -193,8 +208,7 @@ p{
 }
 
 .list-item .product-image {
- 
-    margin: 16px auto;
+     margin: 16px 8px;
   }
 
 /* _____________VITRINE_____________ */
@@ -238,8 +252,14 @@ p{
 
 .card-content h5 {
   font-weight: 300;
-  height: 50px;
+  height: 24px;
   overflow: hidden;
+  margin-bottom: 2px;
+}
+
+.card-content p{
+  font-size: .85rem;
+  color: grey;
 }
 
 .product-image {

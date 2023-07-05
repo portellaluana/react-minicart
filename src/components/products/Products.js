@@ -6,12 +6,11 @@ import { AppContext } from "../../context/AppContext";
 
 export const Products = () => {
   const { products, setProducts, loading, setLoading } = useContext(AppContext);
-  // const [products, setProducts] = useState([]);
 
   useEffect(() => {
     fetchProducts().then((response) => {
       setProducts(response);
-      // console.log("products", products);
+
       setLoading(false);
     });
   }, []);

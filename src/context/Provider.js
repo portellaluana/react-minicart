@@ -16,6 +16,7 @@ export const Provider = ({ children }) => {
     setCartItems,
     cartVisible,
     setCartVisible,
+ 
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
