@@ -1,26 +1,35 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import iconeLixeira from "../../assets/images/icone-lixeira.png";
 import { AppContext } from "../../context/AppContext";
 
 
 export const CartItem = ({ data }) => {
   const { cartItems, setCartItems } = useContext(AppContext)
-  const { id, title, thumbnail, price, description } = data.cartItem;
+  const { id, title, thumbnail, price } = data.product;
 
-   const handleRemoveItem = () => {
+  const result = cartItems.filter(item => item.id === data.product.id);
+  
+  const [ quantity, setQuantity] = useState(result.length)
+
+  
+const handleRemoveItem = () => {
+
+  if(quantity === 1){
     const updateItems = cartItems.filter((item) => item.id !== id)
     setCartItems(updateItems)
-  }
+  } else (setQuantity(quantity -1))
+   }
 
-  return (
+    return (
     <>
       <li className="list-item">
         <img src={thumbnail} alt="imagem-produto" className="product-image" />
 
         <div className="list-item-info">
           <p className="product-name">{title}</p>
-          <p className="product-description" >{description}</p>
-          <p className="quantity-item">Quantidade: 1</p>
+          {/* <p className="product-description" >{description}</p> */}
+          <p className="quantity-item">Quantidade: {quantity}</p>
+          <p className="product-price">R$ {price}</p>
           {/* <div className="quantity-container">
             
             <button className="minus" >
@@ -36,7 +45,7 @@ export const CartItem = ({ data }) => {
           </div> */}
         </div>
 <div>
-<p className="product-price">R$ {price}</p>
+
             
 </div>
         <button type="button" className="remove-item">

@@ -37,8 +37,8 @@ export const Minicart = () => {
       
       {cartItems.length === 0 ? <h3 className="empty-cart-content">
            <span className="empty-cart">Seu carrinho está vazio.</span></h3> :
-        <ul className="list-group"> {cartItems.map((cartItem, cartItemIndex) => (
-          <CartItem key={cartItemIndex} data={{ cartItem }} />
+        <ul className="list-group"> {cartItems.map((product, cartItemIndex) => (
+          <CartItem key={cartItemIndex} data={{ product }} />
         ))}</ul>
       }
       

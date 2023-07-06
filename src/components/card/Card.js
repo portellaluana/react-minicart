@@ -1,19 +1,30 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../context/AppContext";
 import { formatCurrrency } from "../../utils/formatCurrency";
 
 export const Card = ({ data }) => {
   const { title, thumbnail, price, description } = data.product;
-  const { cartItems, setCartItems } = useContext(AppContext);
+  const { cartItems, setCartItems} = useContext(AppContext);
+  const result = cartItems.filter(item => item.id === data.product.id);
+  const [ quantity, setQuantity] = useState(result.length)
+ 
 
   const handleAddCart = () => {
-    setCartItems([...cartItems, data.product])
+
+  setCartItems([...cartItems, data.product])
+  setQuantity(quantity +1)
+
+  // if(result.length === 0){
+//   setCartItems([...cartItems, data.product])
+// } if(result.length >= 1){(setQuantity(quantity +1))}
+
+    console.log("cartItems.length", cartItems.length)
+    console.log("result.length", result.length)
   }
 
-     useEffect(()=>{
-     localStorage.setItem('productsList', JSON.stringify(cartItems))
-   },[cartItems])
-
+  useEffect(()=>{
+  localStorage.setItem('productsList', JSON.stringify(cartItems))
+},[cartItems])
 
   return (
     <div className="card-container">

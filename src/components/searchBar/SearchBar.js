@@ -12,11 +12,10 @@ export const SearchBar = () => {
   const handleSearch = async (e) => {
     e.preventDefault();
     setLoading(true);
+
     const products = await fetchProducts(searchValue);
     setProducts(products);
-    console.log(products);
     setLoading(false);
-
     setSearchValue("");
   };
 

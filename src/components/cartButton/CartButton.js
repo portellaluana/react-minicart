@@ -9,7 +9,7 @@ const openCart =()=>{
   setCartVisible(!cartVisible)
 
 }
-  
+
   return (
     <button onClick={openCart}>
       <img src={iconeCarrinho} alt="icone-carrinho" />
