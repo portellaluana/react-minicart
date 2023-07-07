@@ -5,10 +5,9 @@ import { AppContext } from "../../context/AppContext";
 
 export const CartButton = () => {
   const { cartItems, cartVisible, setCartVisible } = useContext(AppContext);
-const openCart =()=>{
-  setCartVisible(!cartVisible)
-
-}
+  const openCart = () => {
+    setCartVisible(!cartVisible);
+  };
 
   return (
     <button onClick={openCart}>

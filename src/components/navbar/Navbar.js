@@ -6,7 +6,7 @@ export const Navbar = () => {
     <section className="nav-container">
       <div className="nav-content">
         <a href="#" className="navbar-brand">
-          HOME<span>THINGS</span>
+          HOME<span>BAKERY</span>
         </a>
         <SearchBar />
         <CartButton />
