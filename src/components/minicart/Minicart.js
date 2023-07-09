@@ -13,10 +13,7 @@ export const Minicart = () => {
 
   useEffect(() => {
     console.log("useEffectGET");
-
-    if (localStorage.getItem("productsList") !== null) {
-      setCartItems(JSON.parse(localStorage.getItem("productsList")));
-    }
+      setCartItems(JSON.parse(localStorage.getItem("productsList")) || []);
   }, []);
 
   return (

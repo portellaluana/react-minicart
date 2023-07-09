@@ -7,21 +7,13 @@ export const Card = ({ data }) => {
 
   const { cartItems, setCartItems } = useContext(AppContext);
 
-  const handleAddCart = () => {
-    console.log("handleAddCart");
+  const handleAddToCart = () => {
+    console.log("handleAddToCart");
 
     const item = cartItems.find((product) => product.id === id);
 
-    if (!item) {
-      console.log("setCartItemsAntes");
-
-      setCartItems([...cartItems, data.product]);
-      console.log("setCartItemsDepois");
-    }
-    if (item) {
-      item.quantity = item.quantity + 1;
-    }
-  };
+    (!item ? setCartItems([...cartItems, data.product]) : item.quantity = item.quantity + 1 )
+     };
 
   useEffect(() => {
     console.log("useEffect");
@@ -37,7 +29,7 @@ export const Card = ({ data }) => {
         <p>{description}</p>
         <strong>{formatCurrrency(price, "BRL")}</strong>
 
-        <button className="button-primary" onClick={handleAddCart}>
+        <button className="button-primary" onClick={handleAddToCart}>
           Adicionar ao carrinho
         </button>
       </div>
