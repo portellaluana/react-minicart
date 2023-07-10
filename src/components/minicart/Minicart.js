@@ -9,7 +9,7 @@ export const Minicart = () => {
   const { cartItems, cartVisible, setCartVisible, setCartItems } =
     useContext(AppContext);
 
-  const totalPrice = cartItems.reduce((acc, item) => item.price + acc, 0);
+  const totalPrice = cartItems.reduce((acc, item) => (item.price * item.quantity) + acc, 0);
 
   useEffect(() => {
     console.log("useEffectGET");
