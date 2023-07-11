@@ -5,7 +5,8 @@ import { fetchProducts } from "../../api/fetchProducts";
 import { AppContext } from "../../context/AppContext";
 
 export const SearchBar = () => {
-  const { setProducts, setLoading } = useContext(AppContext);
+  const { setProducts, setLoading, setProductNotFound } =
+    useContext(AppContext);
 
   const [searchValue, setSearchValue] = useState("");
 
@@ -17,6 +18,19 @@ export const SearchBar = () => {
     setProducts(products);
     setLoading(false);
     setSearchValue("");
+
+    const searchValueLowerCase = searchValue.toLocaleLowerCase();
+
+    const SearchResult = products.filter((product) =>
+      product.title.toLocaleLowerCase().includes(searchValueLowerCase)
+    );
+
+    if (SearchResult.length === 0) {
+      setProductNotFound(true);
+      setSearchValue("");
+    }
+    setProducts(SearchResult);
+
   };
 
   return (

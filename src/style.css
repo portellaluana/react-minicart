@@ -228,12 +228,14 @@ p {
   gap: 40px;
 }
 
-.container-vitrine-produtos h4 {
+.container-vitrine-produtos h4,
+.not-found-title {
   font-weight: 200;
   text-transform: uppercase;
   text-align: center;
   padding-top: 100px;
   color: #8e5644;
+  margin-bottom: 1.5rem;
 }
 
 .card-container {
@@ -293,7 +295,8 @@ p {
   font-weight: 300;
 }
 
-.navbar-brand:hover {
+.navbar-brand:hover,
+.navbar-brand:focus {
   color: #7b422f;
 }
 
@@ -350,4 +353,66 @@ p {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* _____________NOT FOUND_____________ */
+
+.not-found-image-container {
+  width: 100vw;
+}
+
+.not-found-image-content {
+  display: flex;
+  justify-content: center;
+  height: 80px;
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate{
+  0%{rotate: 0deg;}
+  100%{rotate: 360deg;}
+}
+.not-found-image {
+  margin: 0 auto;
+}
+
+ .not-found-image:nth-child(1) {
+  left: 157%;
+}
+/*.not-found-image:nth-child(2) {
+  left: 137%;
+}
+.not-found-image:nth-child(3) {
+  left: 117%;
+}
+.not-found-image:nth-child(4) {
+  animation: replace 5s linear infinite;
+  left: 97%;
+}
+.not-found-image:nth-child(5) {
+  animation: replace 5s linear infinite;
+  left: 77%;
+}
+
+@keyframes replace {
+  0% {
+    visibility: visible;
+  }
+  15% {
+    visibility: hidden;
+  }
+  84% {
+    visibility: hidden;
+  }
+  85% {
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
+  }
+} */
+
+
+::-webkit-scrollbar {
+  width: 0px;
 }

@@ -12,7 +12,6 @@ export const Minicart = () => {
   const totalPrice = cartItems.reduce((acc, item) => (item.price * item.quantity) + acc, 0);
 
   useEffect(() => {
-    console.log("useEffectGET");
       setCartItems(JSON.parse(localStorage.getItem("productsList")) || []);
   }, []);
 

@@ -1,10 +1,10 @@
 import iconeCarrinho from "../../assets/images/icone-carrinho.png";
 import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
-// import {getProducts} from "../../api/fetchProducts";
 
 export const CartButton = () => {
   const { cartItems, cartVisible, setCartVisible } = useContext(AppContext);
+  
   const openCart = () => {
     setCartVisible(!cartVisible);
   };
