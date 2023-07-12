@@ -95,7 +95,7 @@ p {
 
 /* _____________MINICART_____________ */
 
-/* .minicart-backdrop {
+.minicart-backdrop {
   position: fixed;
   left: 0;
   right: 0;
@@ -105,7 +105,7 @@ p {
   animation-duration: 1s;
   transition: all 400ms ease;
   z-index: 0;
-} */
+}
 
 .minicart-content {
   margin-right: 0;
@@ -207,6 +207,11 @@ p {
   border: 1px solid #7b422f;
 }
 
+.button-secondary:active {
+  background-color: white !important;
+  color: #8e5644;
+}
+
 .list-item .product-image {
   margin: 16px 8px;
 }
@@ -287,6 +292,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 20px;
 }
 
 .navbar-brand {
@@ -332,7 +338,7 @@ p {
   top: 0;
   right: 0;
   color: #7b422f;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
   display: flex;
   align-items: center;
@@ -354,65 +360,50 @@ p {
     transform: rotate(360deg);
   }
 }
-
-/* _____________NOT FOUND_____________ */
-
-.not-found-image-container {
-  width: 100vw;
-}
-
-.not-found-image-content {
-  display: flex;
-  justify-content: center;
-  height: 80px;
-  animation: rotate 2s linear infinite;
-}
-
-@keyframes rotate{
-  0%{rotate: 0deg;}
-  100%{rotate: 360deg;}
-}
-.not-found-image {
-  margin: 0 auto;
-}
-
- .not-found-image:nth-child(1) {
-  left: 157%;
-}
-/*.not-found-image:nth-child(2) {
-  left: 137%;
-}
-.not-found-image:nth-child(3) {
-  left: 117%;
-}
-.not-found-image:nth-child(4) {
-  animation: replace 5s linear infinite;
-  left: 97%;
-}
-.not-found-image:nth-child(5) {
-  animation: replace 5s linear infinite;
-  left: 77%;
-}
-
-@keyframes replace {
-  0% {
-    visibility: visible;
-  }
-  15% {
-    visibility: hidden;
-  }
-  84% {
-    visibility: hidden;
-  }
-  85% {
-    visibility: visible;
-  }
-  100% {
-    visibility: hidden;
-  }
-} */
-
+/* _____________ROOT_____________ */
 
 ::-webkit-scrollbar {
   width: 0px;
+}
+/* _____________NOT FOUND_____________ */
+
+.not-found-image-container {
+  display: flex;
+  align-items: center;
+  padding-top: 200px;
+  justify-content: center;
+}
+
+.not-found-image-content {
+  margin: 0;
+  padding: 0;
+}
+.not-found-title {
+  text-transform: none;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  font-size: 1.25rem;
+  font-weight: 200;
+}
+.not-found-eita {
+  margin-top: 16px;
+  font-weight: 600;
+}
+
+.not-found-btn {
+  text-decoration: underline !important;
+  background-color: transparent;
+  border: none;
+  color: #8e5644;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 0;
+}
+
+.not-found-image {
+  width: 140px;
+  background-color: white;
+  margin-right: 30px;
 }

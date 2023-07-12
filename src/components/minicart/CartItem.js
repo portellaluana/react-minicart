@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import iconeLixeira from "../../assets/images/icone-lixeira.png";
+import iconeLixeira from "../../assets/images/icons/trash-icon.png";
 import { AppContext } from "../../context/AppContext";
 
 export const CartItem = ({ data }) => {
@@ -8,24 +8,38 @@ export const CartItem = ({ data }) => {
   const { id, title, thumbnail, price, description, quantity } = data.product;
 
   const handleRemoveItem = () => {
-    if (data.product.quantity === 1) {
-      const updateItems = cartItems.filter((item) => item.id !== id);
-      setCartItems(updateItems);
-    } else {
-      data.product.quantity = data.product.quantity - 1;
-    }
+    const updateItems = cartItems.filter((item) => item.id !== id);
+    setCartItems(updateItems);
   };
+
+  // const updateItems = cartItems.filter((item) => item.id !== id);
+  //     setCartItems(updateItems);
+
   const handleDecrement = () => {
     if (data.product.quantity === 1) {
       const updateItems = cartItems.filter((item) => item.id !== id);
       setCartItems(updateItems);
     } else {
-      data.product.quantity = data.product.quantity - 1;
+      const updateItems = cartItems.map((item) => { 
+        if (item.id === id) {
+          item.quantity = item.quantity  - 1; 
+        }
+        return item;
+      });
+
+      setCartItems(updateItems);
     }
   };
 
   const handleIncreament = () => {
-    data.product.quantity = data.product.quantity + 1;
+    const updateItems = cartItems.map((item) => { 
+      if (item.id === id) {
+        item.quantity = item.quantity  + 1; 
+      }
+      return item;
+    });
+
+    setCartItems(updateItems);
   };
 
   return (

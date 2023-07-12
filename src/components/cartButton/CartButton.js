@@ -1,4 +1,4 @@
-import iconeCarrinho from "../../assets/images/icone-carrinho.png";
+import iconeCarrinho from "../../assets/images/icons/cart-icon.png";
 import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
 

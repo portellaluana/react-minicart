@@ -1,5 +1,5 @@
 import Button from "react-bootstrap/Button";
-import closeIcon from "../../assets/images/closeIcon.png";
+import closeIcon from "../../assets/images/icons/close-icon.png";
 
 import { CartItem } from "./CartItem";
 import { AppContext } from "../../context/AppContext";
@@ -53,11 +53,12 @@ export const Minicart = () => {
             <h6>R$ {totalPrice.toFixed(2)}</h6>
           </div>
 
-          <Button className="button-secondary">Continuar comprando</Button>
+          <Button className="button-secondary" onClick={() => setCartVisible(!cartVisible)}>Continuar comprando</Button>
           <Button className="button-primary">FINALIZAR COMPRAS</Button>
         </div>
       </section>
-      <div className={`${cartVisible ? "minicart-backdrop" : ""}`} />
+      <div className={`${cartVisible ? "minicart-backdrop" : ""}`} 
+      onClick={() => setCartVisible(!cartVisible)}/>
     </>
   );
 };

@@ -7,12 +7,21 @@ export const Card = ({ data }) => {
 
   const { cartItems, setCartItems } = useContext(AppContext);
 
-  const handleAddToCart = () => {
-    const item = cartItems.find((product) => product.id === id);
-
-    (!item ? setCartItems([...cartItems, data.product]) : item.quantity = item.quantity + 1 )
-     };
-
+     const handleAddToCart = () => {
+      const item = cartItems.find((product) => product.id === id);
+  
+      if(item) {
+        const updateItems = cartItems.map((product) => {
+          if (product.id === id) {
+            product.quantity = product.quantity + 1;
+          }
+          return product;
+        });
+        setCartItems(updateItems); 
+      } else {
+        setCartItems([...cartItems, data.product])
+      }
+    }
   useEffect(() => {
     localStorage.setItem("productsList", JSON.stringify(cartItems));
   }, [cartItems]);

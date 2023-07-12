@@ -1,5 +1,5 @@
 import Form from "react-bootstrap/Form";
-import iconeSearch from "../../assets/images/icone-search.png";
+import iconeSearch from "../../assets/images/icons/search-icon.png";
 import { useState, useContext } from "react";
 import { fetchProducts } from "../../api/fetchProducts";
 import { AppContext } from "../../context/AppContext";
