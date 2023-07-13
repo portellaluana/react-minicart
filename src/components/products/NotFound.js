@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
 
 export const NotFound = () => {
-  const { productNotFound } = useContext(AppContext);
+  const { productNotFound, searchItem } = useContext(AppContext);
 
   const refreshPage = () => {
     window.location.reload(false);
@@ -14,14 +14,10 @@ export const NotFound = () => {
     <div>
       {productNotFound ? (
         <div className="not-found-image-container">
-          <div >
-            <h4 className="not-found-title">
-              <span className="not-found-eita">eita!</span>
-              <br />
-              <span>esse produto</span>
-              <br />
-              não tem
-            </h4>
+          <div>
+            <h4 className="not-found-title not-found-eita">eita!</h4>
+            <h4 className="not-found-title search-item-not-found">" {searchItem} "</h4>
+            <h4 className="not-found-title ">não tem</h4>
             <button className="not-found-btn" onClick={refreshPage}>
               Voltar
             </button>

@@ -1,5 +1,6 @@
 import Button from "react-bootstrap/Button";
 import closeIcon from "../../assets/images/icons/close-icon.png";
+import { Link } from "react-router-dom";
 
 import { CartItem } from "./CartItem";
 import { AppContext } from "../../context/AppContext";
@@ -9,10 +10,13 @@ export const Minicart = () => {
   const { cartItems, cartVisible, setCartVisible, setCartItems } =
     useContext(AppContext);
 
-  const totalPrice = cartItems.reduce((acc, item) => (item.price * item.quantity) + acc, 0);
+  const totalPrice = cartItems.reduce(
+    (acc, item) => item.price * item.quantity + acc,
+    0
+  );
 
   useEffect(() => {
-      setCartItems(JSON.parse(localStorage.getItem("productsList")) || []);
+    setCartItems(JSON.parse(localStorage.getItem("productsList")) || []);
   }, []);
 
   return (
@@ -53,12 +57,21 @@ export const Minicart = () => {
             <h6>R$ {totalPrice.toFixed(2)}</h6>
           </div>
 
-          <Button className="button-secondary" onClick={() => setCartVisible(!cartVisible)}>Continuar comprando</Button>
-          <Button className="button-primary">FINALIZAR COMPRAS</Button>
+          <Button
+            className="button-secondary"
+            onClick={() => setCartVisible(!cartVisible)}
+          >
+            Continuar comprando
+          </Button>
+          <Link to="/checkout">
+            <Button className="button-primary">FINALIZAR COMPRAS</Button>
+          </Link>
         </div>
       </section>
-      <div className={`${cartVisible ? "minicart-backdrop" : ""}`} 
-      onClick={() => setCartVisible(!cartVisible)}/>
+      <div
+        className={`${cartVisible ? "minicart-backdrop" : ""}`}
+        onClick={() => setCartVisible(!cartVisible)}
+      />
     </>
   );
 };

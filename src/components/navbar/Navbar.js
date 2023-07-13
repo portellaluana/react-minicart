@@ -1,5 +1,6 @@
 import { SearchBar } from "../searchBar/SearchBar";
 import { CartButton } from "../cartButton/CartButton";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
 
@@ -10,9 +11,9 @@ export const Navbar = () => {
   return (
     <section className="nav-container">
       <div className="nav-content">
-        <a href="#" className="navbar-brand" onClick={refreshPage}>
-          HOME<span>BAKERY</span>
-        </a>
+      <Link className="navbar-brand" onClick={refreshPage} to="/">
+      HOME<span>BAKERY</span></Link>
+       
         <SearchBar />
         <CartButton />
       </div>

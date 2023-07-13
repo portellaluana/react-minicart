@@ -1,16 +1,16 @@
 import Form from "react-bootstrap/Form";
 import iconeSearch from "../../assets/images/icons/search-icon.png";
-import { useState, useContext } from "react";
+import { useContext, useState } from "react";
 import { fetchProducts } from "../../api/fetchProducts";
 import { AppContext } from "../../context/AppContext";
 
 export const SearchBar = () => {
-  const { setProducts, setLoading, setProductNotFound } =
+  const { setProducts, setLoading, setProductNotFound,  setSarchItem } =
     useContext(AppContext);
 
   const [searchValue, setSearchValue] = useState("");
 
-  const handleSearch = async (e) => {
+   const handleSearch = async (e) => {
     e.preventDefault();
     setLoading(true);
 
@@ -27,6 +27,7 @@ export const SearchBar = () => {
 
     if (SearchResult.length === 0) {
       setProductNotFound(true);
+      setSarchItem(searchValue);
       setSearchValue("");
     }
     setProducts(SearchResult);

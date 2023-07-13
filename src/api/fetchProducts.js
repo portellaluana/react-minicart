@@ -6,3 +6,12 @@ export const fetchProducts = async () => {
 
   return data;
 };
+
+export const fetchCep = async (cep) => {
+
+  const response = await fetch(`http://viacep.com.br/ws/${cep}/json/`);
+
+  const CEP = await response.json();
+
+  return CEP;
+};

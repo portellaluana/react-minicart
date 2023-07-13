@@ -7,6 +7,7 @@ export const Provider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [cartVisible, setCartVisible] = useState(false);
   const [productNotFound, setProductNotFound] = useState(false);
+  const [searchItem, setSarchItem] = useState("");
 
   const value = {
     products,
@@ -18,7 +19,8 @@ export const Provider = ({ children }) => {
     cartVisible,
     setCartVisible,
     productNotFound,
-    setProductNotFound
+    setProductNotFound,
+    searchItem, setSarchItem
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
