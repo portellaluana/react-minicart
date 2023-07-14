@@ -9,9 +9,15 @@ export const fetchProducts = async () => {
 
 export const fetchCep = async (cep) => {
 
-  const response = await fetch(`http://viacep.com.br/ws/${cep}/json/`);
+  try {
+    const response = await fetch(`http://viacep.com.br/ws/${cep}/json/`);
 
   const CEP = await response.json();
-
+  
   return CEP;
+
+  } catch (error) {
+  return {}
+  }
+
 };

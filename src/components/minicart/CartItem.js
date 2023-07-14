@@ -48,7 +48,6 @@ export const CartItem = ({ data }) => {
           <p className="product-name">{title}</p>
           <p className="product-description">{description}</p>
 
-          {/* <p className="quantity-item">Quantidade: {quantidade}</p> */}
           <p className="product-price">R$ {price}</p>
           <div className="quantity-container">
             <button
@@ -68,7 +67,6 @@ export const CartItem = ({ data }) => {
             </button>
           </div>
         </div>
-        <div></div>
         <button type="button" className="remove-item">
           <img
             src={iconeLixeira}

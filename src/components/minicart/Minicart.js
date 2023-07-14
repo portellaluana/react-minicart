@@ -1,4 +1,3 @@
-import Button from "react-bootstrap/Button";
 import closeIcon from "../../assets/images/icons/close-icon.png";
 import { Link } from "react-router-dom";
 
@@ -57,15 +56,21 @@ export const Minicart = () => {
             <h6>R$ {totalPrice.toFixed(2)}</h6>
           </div>
 
-          <Button
+          <button
             className="button-secondary"
             onClick={() => setCartVisible(!cartVisible)}
           >
             Continuar comprando
-          </Button>
-          <Link to="/checkout">
-            <Button className="button-primary">FINALIZAR COMPRAS</Button>
-          </Link>
+          </button>
+          {cartItems.length === 0 ? (
+            <button disabled>
+              FINALIZAR COMPRAS
+            </button>
+          ) : (
+            <Link to="/checkout">
+              <button className={"button-primary"}>FINALIZAR COMPRAS</button>
+            </Link>
+          )}
         </div>
       </section>
       <div

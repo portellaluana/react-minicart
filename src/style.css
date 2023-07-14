@@ -18,6 +18,7 @@ p {
   text-align: center;
   font-weight: 300;
 }
+
 .empty-cart-content {
   height: 100%;
   align-items: center;
@@ -197,6 +198,8 @@ p {
   width: 100%;
   height: 50px;
   border: 1px solid #8e5644;
+  border-radius: 4px;
+
   color: #8e5644;
   background-color: white;
   margin: 16px auto 10px auto;
@@ -210,6 +213,24 @@ p {
 .button-secondary:active {
   background-color: white !important;
   color: #8e5644;
+}
+
+button:disabled{
+  width: 100%;
+  height: 50px;
+  margin: 0 auto;
+  background-color: #dbdbdb;
+  border: none;
+  border-radius: 4px;
+  color: rgb(83, 83, 83);
+  margin-top: 8px;
+  font-weight: 300;
+  cursor: none;
+}
+
+.button-disabled:hover, .button-disabled:active{
+  background-color: #dbdbdb;
+  color: rgb(83, 83, 83);
 }
 
 .list-item .product-image {
@@ -400,7 +421,7 @@ p {
   font-style: italic;
 }
 
-.not-found-btn {
+.not-found-btn, .search-cep {
   text-decoration: underline !important;
   background-color: transparent;
   border: none;
@@ -425,20 +446,19 @@ p {
 
 .checkout-container {
   width: 100%;
-  max-width: 1080px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding-top: 100px;
   display: grid;
-  /* flex-wrap: wrap; */
-  /* gap: 20px; */
+  gap: 80px;
   grid-template-columns: 2fr 1fr;
+  padding: 100px 20px 0 20px;
 }
 
 .shipping-container,
 .contact-container,
 .order-summary-container {
   display: block;
-  padding: 20px;
+  padding-bottom: 20px;
 }
 
 .shipping-container h5,
@@ -446,27 +466,32 @@ p {
 .order-summary-container h5 {
   text-transform: uppercase;
   margin-bottom: 20px;
-  border-bottom: 1px solid #80808040;;
+  /* border-bottom: 1px solid #80808040; */
+  color: #8e5644;
 }
+
+/* _____________CHECKOUT-SHIPPING_____________ */
 
 .shipping-container label, .contact-container  label{
   font-size: 12px;
   text-transform: uppercase;
+  font-weight: 500;
 }
 
 .shipping-container input, .contact-container input {
   width: 100%;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   border: 1px solid #80808040;
   height: 34px;
   padding-left: 8px;
   border-radius: 4px;
-
+  color: #8e5644;
+font-weight: 300;
 }
 
 .shipping-container input:focus-visible,
 .contact-container input:focus-visible{
-  outline: 2px solid #FFC269;
+  outline: 2px solid #99dbff;
 }
 
 input:-webkit-autofill {
@@ -498,12 +523,15 @@ input:-webkit-autofill {
   align-items: center;
 }
 
-.shipping-container .address-number {
+.address-number-complement, .address-city-neighborhood{
   display: flex;
   gap: 20px;
 }
 
-.address-number .complemento, .address-number .numero{
+.address-number-complement .complement,
+.address-number-complement .number,
+.address-city-neighborhood .address-city,
+.address-city-neighborhood .address-neighborhood{
   display: block;
   width: 100%;
 }
@@ -532,4 +560,81 @@ input:-webkit-autofill {
   margin: 0 !important;
   border-radius: 50%;
   margin-right: 8px;
+}
+
+.address-cep-button{
+  display: flex;
+  align-items:center;
+}
+
+.address-cep-button button {
+  margin: 0 0 16px 16px;
+  margin-bottom: 16px;
+  font-weight: 300;
+}
+
+/* _____________CHECKOUT-ORDER_____________ */
+
+.quantity-item-checkout{
+  width: 100%;
+  text-align: left;
+}
+
+.order-summary-info .list-group{
+  border: none;
+}
+
+.order-summary-info-price{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  align-items: center;
+  background-color: #cfcfcf2e;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.order-summary-info-price h6{
+margin: 0;
+padding: 0;
+}
+
+/* _____________CHECKOUT-CONTACT_____________ */
+
+.contact-content{
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+.contact-buttons{
+  margin-bottom: 60px;
+}
+
+.contact-name, .contact-email{
+  width: 100%;
+}
+
+/* _____________MEDIAS_____________ */
+
+@media (max-width: 970px){
+  .checkout-container {
+    display: grid;
+    padding-top: 70px;
+    gap: 36px;
+    grid-template-columns: unset;
+  }
+  .order-summary-container{
+    margin-top: 16px;
+  }
+  .order-summary-content{
+    order: 1
+  }
+  .contact-info{
+    order: 2;
+  }
+
+  .contact-buttons{
+    margin-bottom: 20px;
+  }
 }
