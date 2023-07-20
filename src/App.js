@@ -8,7 +8,7 @@ import { Provider } from "./context/Provider";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Provider>
         <Routes>
           <Route path="/" element={<Homepage />} />
