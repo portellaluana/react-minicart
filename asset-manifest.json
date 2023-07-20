@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react-minicart/static/css/main.5ddfd888.css",
+    "main.js": "/react-minicart/static/js/main.5bad1aae.js",
+    "static/js/787.296a6d54.chunk.js": "/react-minicart/static/js/787.296a6d54.chunk.js",
+    "static/media/broken-lollipop.png": "/react-minicart/static/media/broken-lollipop.654dfab2855540b351c6.png",
+    "index.html": "/react-minicart/index.html",
+    "main.5ddfd888.css.map": "/react-minicart/static/css/main.5ddfd888.css.map",
+    "main.5bad1aae.js.map": "/react-minicart/static/js/main.5bad1aae.js.map",
+    "787.296a6d54.chunk.js.map": "/react-minicart/static/js/787.296a6d54.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5ddfd888.css",
+    "static/js/main.5bad1aae.js"
+  ]
+}
